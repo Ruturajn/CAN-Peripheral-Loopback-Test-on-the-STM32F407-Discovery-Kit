@@ -13,6 +13,7 @@ also needs to be connected externally. The connections between the STM32F407 and
 | PB8 | RX |
 | PB9 | TX |
 
-For the 120-ohm termination, connect the CAN_H to a point on the breadboard. Then take a resistor or a combination of resistors that make up 120-ohms and connect the other end to
-CAN_L, whih is brought onto the breadboard from the SN65HVD230 module. On the module, connet the CAN_H to CAN_L with a female-female jumper wire. Please see the picture above for a better understanding.
+For the 120-ohm termination, connect the CAN_H from the SN65HVD230 module to a point on the breadboard. Then take a resistor or a combination of resistors that make up 120-ohms 
+and connect the other end to CAN_L, whih is brought onto the breadboard from the SN65HVD230 module. On the module, connet the CAN_H to CAN_L with a female-female jumper wire.
+Please see the picture above for a better understanding.
 
