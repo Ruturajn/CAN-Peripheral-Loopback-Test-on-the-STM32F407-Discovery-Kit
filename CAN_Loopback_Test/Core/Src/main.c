@@ -103,7 +103,7 @@ void CAN1_Init(){
 	// Select Identifier List mode
 	CAN1->FM1R |= CAN_FM1R_FBM13;
 
-	//Activating filter 14
+	//Activating filter 13
 	CAN1->FA1R |= CAN_FA1R_FACT13;
 
 	//Exit filter Initialization Mode
