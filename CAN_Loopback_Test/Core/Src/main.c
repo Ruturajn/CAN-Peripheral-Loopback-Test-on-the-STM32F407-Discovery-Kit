@@ -49,19 +49,21 @@ void CAN1_Init(){
 	CAN1->BTR |= CAN_BTR_LBKM;
 
 	//Setting the Re synchronization jump width to 1
-	CAN1->BTR |= CAN_BTR_SJW_0;
+	CAN1->BTR &= ~CAN_BTR_SJW;
 
 	//Setting the no. of time quanta for Time segment 2
-	// TS2 = 4;
-	CAN1->BTR |= CAN_BTR_TS2_2;
+	// TS2 = 4-1;
+	CAN1->BTR &= ~(CAN_BTR_TS2);
+	CAN1->BTR |= (CAN_BTR_TS2_1 | CAN_BTR_TS2_0);
 
 	//Setting the no. of time quanta for Time segment 1
-	// TS2 = 3;
-	CAN1->BTR |= (CAN_BTR_TS1_1 | CAN_BTR_TS1_0);
+	// TS1 = 3-1;
+	CAN1->BTR &= ~(CAN_BTR_TS1);
+	CAN1->BTR |= (CAN_BTR_TS1_1);
 
 	//Setting the Baud rate Pre-scalar for CAN1
-	// BRP[9:0] = 16
-	CAN1->BTR |= (16<<0);
+	// BRP[9:0] = 16-1
+	CAN1->BTR |= ((16-1)<<0);
 
 	// Exit the Initialization mode for CAN1
 	// Wait until the INAK bit is cleared by hardware
@@ -145,7 +147,7 @@ int main(void){
 	CAN1_Init();
 	while(1){
 		CAN1_Tx(k);
-		k = CAN1_Rx();
+		rec= CAN1_Rx();
 		k += 1;
 		if (k>25)
 			k = 0;
